@@ -6,16 +6,18 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 18:25:33 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/02 19:40:07 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/08 17:13:54 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define BUFF_SIZE 32
 
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 
 typedef struct		s_list
 {
@@ -89,5 +91,6 @@ int					ft_islower(int c);
 int					ft_wordcount(char const *s, char c);
 void				ft_swap(int *a, int *b);
 char				*ft_strndup(const char *s1, size_t n);
+int					ft_get_next_line(int const fd, char **line);
 
 #endif
