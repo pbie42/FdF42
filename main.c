@@ -5,40 +5,44 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/08 18:10:18 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/09 14:33:50 by pbie             ###   ########.fr       */
+/*   Created: 2016/02/09 15:56:55 by pbie              #+#    #+#             */
+/*   Updated: 2016/02/09 18:31:46 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
-#include <stdio.h>
+#include "fdf.h"
 
-int				my_key_funct(int keycode, void *param)
+int				ft_keycheck(int keycode, void *param)
 {
-	printf("key event %d\n", keycode);
+	if (keycode == 53)
+		exit(0);
 	return (0);
 }
 
-int				main()
+void			ft_square(t_mlx *mlx)
 {
-	void		*mlx;
-	void		*win;
-	int			x;
-	int			y;
-
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 400, 400, "mlx 42");
-	y = 50;
-	while (y < 150)
+	while (mlx->y < (SIZE_Y * (3 / 4)))
 	{
-		x = 50;
-		while (x < 150)
+		mlx->x = 250;
+		while (mlx->x < (SIZE_X * (3 / 4)))
 		{
-			mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF);
-			x++;
+			mlx_pixel_put(mlx->mlx, mlx->win, mlx->x, mlx->y, 0x00FFFFFF);
+			mlx->x++;
 		}
-		y++;
+		mlx->y++;
 	}
-	mlx_key_hook(win, my_key_funct, 0);
-	mlx_loop(mlx);
+}
+
+int				main(int argc, char **argv)
+{
+	t_mlx		mlx;
+
+	mlx.mlx = mlx_init();
+	mlx.win = mlx_new_window(mlx.mlx, SIZE_X, SIZE_Y, "maintest");
+	mlx.y = SIZE_Y / 4;
+	mlx.x = SIZE_X / 4;
+	ft_square(&mlx);
+	mlx_key_hook(mlx.win, ft_keycheck, 0);
+	mlx_loop(mlx.mlx);
 }
