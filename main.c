@@ -6,11 +6,18 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:10:18 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/08 18:20:53 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/09 14:33:50 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
+#include <stdio.h>
+
+int				my_key_funct(int keycode, void *param)
+{
+	printf("key event %d\n", keycode);
+	return (0);
+}
 
 int				main()
 {
@@ -32,5 +39,6 @@ int				main()
 		}
 		y++;
 	}
+	mlx_key_hook(win, my_key_funct, 0);
 	mlx_loop(mlx);
 }
