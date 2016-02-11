@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/11 15:09:02 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/11 16:54:25 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define FDF_H
 # define SIZE_X 1000
 # define SIZE_Y 1000
+
+# include "../libft/includes/libft.h"
+# include "../minilibx/mlx.h"
 
 typedef struct		s_mlx
 {
@@ -24,7 +27,13 @@ typedef struct		s_mlx
 	int				c;
 }					t_mlx;
 
-# include "../libft/includes/libft.h"
-# include "../minilibx/mlx.h"
+char				**ft_parse1(int argc, char **argv);
+int					**ft_parse2(char **tab);
+char				**ft_buildtab(int j);
+int					*ft_chartonumline(char *s, int c);
+int					ft_strlennum(char const *s);
+int					**ft_numboard(int c);
+void				ft_putnbrline(int *nl, int len);
+void				ft_putnbrtab(int **nb, char **tab);
 
 #endif

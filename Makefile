@@ -6,7 +6,7 @@
 #    By: pbie <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/15 11:55:43 by pbie              #+#    #+#              #
-#    Updated: 2016/02/11 15:16:39 by pbie             ###   ########.fr        #
+#    Updated: 2016/02/11 17:29:50 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME = fdf
 
 CFLAGS = -Wall -Werror -Wextra -Iincludes
 
-SRC = main.c
+SRC = main.c \
+	  ft_parse.c \
+	  ft_testfuncs.c
 
 OBJ = $(SRC:.c=.o)
 

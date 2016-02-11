@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 15:56:55 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/11 16:08:17 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/11 17:31:39 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int				ft_keycheck(int keycode, t_mlx *mlx)
 	return (0);
 }
 
-char			**buildtab(int j)
+char			**ft_buildtab(int j)
 {
 	char		**tab;
 
@@ -54,6 +54,7 @@ int				main(int argc, char **argv)
 	int			i;
 	char		**tab;
 	int			j;
+	int			**nb;
 
 	i = 1;
 	j = 0;
@@ -69,7 +70,10 @@ int				main(int argc, char **argv)
 			j++;
 		++i;
 	}
-	tab = buildtab(j);
+	close(fd);
+	ft_putnbr(fd);
+	ft_putchar('\n');
+	tab = ft_buildtab(j);
 	i = 1;
 	j = 0;
 	while (i < argc)
@@ -83,7 +87,11 @@ int				main(int argc, char **argv)
 		}
 		++i;
 	}
+	ft_putnbr(fd);
+	ft_putchar('\n');
 	tab[j] = NULL;
+	nb = ft_parse2(tab);
+	ft_putnbrtab(nb, tab);
 	ft_putstrtab(tab);
 	//ft_square(mlx);
 	//mlx_key_hook(mlx.win, ft_keycheck, &mlx);

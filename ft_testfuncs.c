@@ -1,57 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   ft_testfuncs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/10 14:21:31 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/11 16:08:05 by pbie             ###   ########.fr       */
+/*   Created: 2016/02/11 17:26:47 by pbie              #+#    #+#             */
+/*   Updated: 2016/02/11 17:27:38 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int				ft_strlennum(char const *s)
+void			ft_putnbrline(int *nl, int len)
 {
 	int			i;
-	int			c;
 
 	i = 0;
-	c = 0;
-	while (s[i] != '\0')
+	while (i < len)
 	{
-		if (s[i] >= '0' && s[i] <= '9')
-		{
-			if (s[i + 1] < '0' || s[i + 1] > '9' || s[i + 1] == '\0')
-				c++;
-		}
+		ft_putchar(' ');
+		ft_putnbr(nl[i]);
+		ft_putchar(' ');
 		i++;
 	}
-	return (c);
 }
 
-int				**ft_numboard(int c)
+void			ft_putnbrtab(int **nb, char **tab)
 {
-	int			**nb;
-
-	nb = (int **)malloc(sizeof(int *) * c);
-	return (nb);
-}
-
-int				**ft_parse(char **tab)
-{
-	int			**nb;
 	int			i;
 
 	i = 0;
-	nb = ft_numboard(ft_tablen(tab));
-	while (tab[i] != NULL)
+	while (i < ft_tablen(tab))
 	{
-		nb[i] = (int *)malloc(sizeof(int) * ft_strlennum(tab[i]));
+		ft_putnbrline(nb[i], ft_strlennum(tab[i]));
+		ft_putchar('\n');
 		i++;
 	}
-	i = 0;
-
-	return (nb);
 }
