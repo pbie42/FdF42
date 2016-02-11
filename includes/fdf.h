@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/09 18:01:37 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/11 15:09:02 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ typedef struct		s_mlx
 	void			*win;
 	int				y;
 	int				x;
+	int				c;
 }					t_mlx;
 
-# include "libft/includes/libft.h"
-# include "minilibx/mlx.h"
+# include "../libft/includes/libft.h"
+# include "../minilibx/mlx.h"
 
 #endif

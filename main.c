@@ -6,13 +6,11 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 15:56:55 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/10 18:15:29 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/11 16:08:17 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minilibx/mlx.h"
-#include "includes/fdf.h"
-#include "libft/includes/libft.h"
+#include "fdf.h"
 #include <stdio.h>
 
 void			ft_square(t_mlx mlx)

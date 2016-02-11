@@ -6,7 +6,7 @@
 #    By: pbie <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/30 18:33:46 by pbie              #+#    #+#              #
-#    Updated: 2016/02/08 17:11:52 by pbie             ###   ########.fr        #
+#    Updated: 2016/02/11 15:54:37 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,8 @@ SRC = ft_atoi.c \
 	  ft_wordcount.c \
 	  ft_strndup.c \
 	  ft_get_next_line.c \
+	  ft_putstrtab.c \
+	  ft_tablen.c
 
 
 OBJ = $(SRC:.c=.o)

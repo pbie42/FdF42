@@ -6,11 +6,11 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 15:34:42 by pbie              #+#    #+#             */
-/*   Updated: 2016/01/29 15:41:29 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/10 17:05:44 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 char			*ft_strndup(const char *s1, size_t n)
 {

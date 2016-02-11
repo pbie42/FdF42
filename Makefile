@@ -6,7 +6,7 @@
 #    By: pbie <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/15 11:55:43 by pbie              #+#    #+#              #
-#    Updated: 2016/02/10 17:43:22 by pbie             ###   ########.fr        #
+#    Updated: 2016/02/11 15:16:39 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,9 @@ OBJ = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME) :
-	@make -C libft
-	@make -C minilibx_macros
-	gcc $(CFLAGS) -o $(NAME) $(SRC) -lmlx -framework OpenGl -framework Appkit
-	echo "$(NAME) created"
+	@make -C libft re
+	@gcc $(CFLAGS) -o $(NAME) $(SRC) -I libft/includes/libft.h -lmlx -framework OpenGl -framework Appkit libft/libft.a
+	@echo "$(NAME) created"
 
 clean :
 	rm -rf $(OBJ)

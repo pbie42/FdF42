@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 18:25:33 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/08 17:13:54 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/11 15:54:16 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,7 @@ int					ft_wordcount(char const *s, char c);
 void				ft_swap(int *a, int *b);
 char				*ft_strndup(const char *s1, size_t n);
 int					ft_get_next_line(int const fd, char **line);
+void				ft_putstrtab(char **tab);
+int					ft_tablen(char **tab);
 
 #endif
