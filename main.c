@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 15:56:55 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/11 17:31:39 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/11 17:35:20 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int				main(int argc, char **argv)
 
 	i = 1;
 	j = 0;
-	//mlx.mlx = mlx_init();
-	//mlx.win = mlx_new_window(mlx.mlx, SIZE_X, SIZE_Y, "maintest");
+	mlx.mlx = mlx_init();
+	mlx.win = mlx_new_window(mlx.mlx, SIZE_X, SIZE_Y, "maintest");
 	mlx.c = 0x00FFFFFF;
 	mlx.y = SIZE_Y / 4;
 	mlx.x = SIZE_X / 4;
@@ -93,8 +93,8 @@ int				main(int argc, char **argv)
 	nb = ft_parse2(tab);
 	ft_putnbrtab(nb, tab);
 	ft_putstrtab(tab);
-	//ft_square(mlx);
-	//mlx_key_hook(mlx.win, ft_keycheck, &mlx);
-	//mlx_loop(mlx.mlx);
+	ft_square(mlx);
+	mlx_key_hook(mlx.win, ft_keycheck, &mlx);
+	mlx_loop(mlx.mlx);
 	return (0);
 }
