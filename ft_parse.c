@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 14:21:31 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/12 17:20:17 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/12 18:00:05 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,10 @@ int				**ft_parse2(char **tab, t_mlx *mlx)
 	i = 0;
 	mlx->tablen = ft_tablen(tab);
 	nb = ft_numboard(mlx->tablen);
+	mlx->strlen = ft_strlennum(tab[i]);
 	while (tab[i] != NULL)
 	{
-		nb[i] = ft_chartonumline(tab[i], ft_strlennum(tab[i]));
+		nb[i] = ft_chartonumline(tab[i], mlx->strlen);
 		i++;
 	}
 	return (nb);

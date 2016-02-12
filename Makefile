@@ -6,7 +6,7 @@
 #    By: pbie <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/15 11:55:43 by pbie              #+#    #+#              #
-#    Updated: 2016/02/12 15:24:42 by pbie             ###   ########.fr        #
+#    Updated: 2016/02/12 18:12:45 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CFLAGS = -Wall -Werror -Wextra -Iincludes
 SRC = main.c \
 	  ft_parse.c \
 	  ft_parseaux.c \
-	  ft_testfuncs.c
+	  ft_testfuncs.c \
+	  ft_mapsize.c
 
 OBJ = $(SRC:.c=.o)
 

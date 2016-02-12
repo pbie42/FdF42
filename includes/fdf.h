@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/12 17:20:14 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/12 18:12:31 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct		s_mlx
 	int				x;
 	int				c;
 	int				tablen;
+	int				strlen;
 }					t_mlx;
 
 typedef struct		s_fd
@@ -44,5 +45,6 @@ int					ft_strlennum(char const *s);
 int					**ft_numboard(int c);
 void				ft_putnbrline(int *nl, int len);
 void				ft_putnbrtab(int **nb, char **tab);
+void				ft_grid(t_mlx mlx);
 
 #endif
