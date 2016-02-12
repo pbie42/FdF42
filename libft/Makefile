@@ -6,7 +6,7 @@
 #    By: pbie <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/30 18:33:46 by pbie              #+#    #+#              #
-#    Updated: 2016/02/11 15:54:37 by pbie             ###   ########.fr        #
+#    Updated: 2016/02/12 16:32:13 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,9 @@ SRC = ft_atoi.c \
 	  ft_strndup.c \
 	  ft_get_next_line.c \
 	  ft_putstrtab.c \
-	  ft_tablen.c
+	  ft_tablen.c \
+	  ft_exit.c \
+	  ft_buildtab.c
 
 
 OBJ = $(SRC:.c=.o)

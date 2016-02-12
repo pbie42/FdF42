@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 18:25:33 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/11 15:54:16 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/12 16:31:55 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,7 @@ char				*ft_strndup(const char *s1, size_t n);
 int					ft_get_next_line(int const fd, char **line);
 void				ft_putstrtab(char **tab);
 int					ft_tablen(char **tab);
+void				ft_exit(const char *message);
+char				**ft_buildtab(int j);
 
 #endif
