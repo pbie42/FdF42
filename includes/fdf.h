@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/12 18:12:31 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/15 16:29:45 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ int					ft_strlennum(char const *s);
 int					**ft_numboard(int c);
 void				ft_putnbrline(int *nl, int len);
 void				ft_putnbrtab(int **nb, char **tab);
-void				ft_grid(t_mlx mlx);
+void				ft_grid(t_mlx mlx, int **nb);
 
 #endif

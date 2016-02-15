@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 15:56:55 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/12 18:12:49 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/15 16:29:51 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int				main(int argc, char **argv)
 	finfo = ft_finfobuild(argc);
 	tab = ft_parse1(argv[1], &finfo);
 	nb = ft_parse2(tab, &mlx);
-	ft_grid(mlx);
+	ft_grid(mlx, nb);
 	mlx_key_hook(mlx.win, ft_keycheck, &mlx);
 	mlx_loop(mlx.mlx);
 	return (0);
