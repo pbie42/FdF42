@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/15 16:29:45 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/16 18:41:20 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@ typedef struct		s_fd
 	int				argc;
 }					t_fd;
 
+typedef struct		s_line
+{
+	int				x;
+	int				y;
+	int				dx0;
+	int				dy0;
+	int				dx1;
+	int				dy1;
+	int				longest;
+	int				shortest;
+	int				numerator;
+}					t_line;
+
 char				**ft_parse1(char *file, t_fd *finfo);
 int					**ft_parse2(char **tab, t_mlx *mlx);
 char				**ft_buildtab(int j);
@@ -46,5 +59,6 @@ int					**ft_numboard(int c);
 void				ft_putnbrline(int *nl, int len);
 void				ft_putnbrtab(int **nb, char **tab);
 void				ft_grid(t_mlx mlx, int **nb);
+void				ft_linedraw(int x0, int y0, int x1, int y1, t_mlx mlx);
 
 #endif
