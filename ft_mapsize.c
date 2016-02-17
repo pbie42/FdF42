@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 17:51:12 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/17 14:39:43 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/17 18:12:42 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,43 @@ void			ft_grid(t_mlx mlx, int **nb)
 		ft_putnbr(j);
 		ft_putchar('\n');
 	}
+}
+
+void			ft_displaysize(t_mlx *mlx)
+{
+	if (mlx->tablen > mlx->strlen)
+	{
+		mlx->y = (SIZE_Y) / mlx->tablen;
+		mlx->x = (SIZE_X) / mlx->tablen;
+	}
+	else
+	{
+		mlx->y = (SIZE_Y) / mlx->strlen;
+		mlx->x = (SIZE_X) / mlx->strlen;
+	}
+}
+
+void			ft_squaresize(t_mlx *mlx)
+{
+	mlx->sqrs = sqrt((mlx->strlen * mlx->strlen) + (mlx->tablen * mlx->tablen));
+	if (SIZE_X > SIZE_Y)
+		mlx->size = (SIZE_Y - (SIZE_Y * .25)) / mlx->sqrs;
+	else
+		mlx->size = (SIZE_X - (SIZE_X * .25)) / mlx->sqrs;
+}
+
+void			ft_grid2(t_mlx mlx, int nb)
+{
+	int			x;
+	int			y;
+	int			x2;
+	int			y2;
+	int			i;
+	int			j;
+
+	ft_displaysize(&mlx);
+	i = 0;
+
+	x2 = x;
+	
 }

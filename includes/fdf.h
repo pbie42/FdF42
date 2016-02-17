@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/17 14:35:49 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/17 18:09:34 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include "../libft/includes/libft.h"
 # include "../minilibx/mlx.h"
+# include <math.h>
 
 typedef struct		s_mlx
 {
@@ -27,6 +28,8 @@ typedef struct		s_mlx
 	int				c;
 	int				tablen;
 	int				strlen;
+	int				sqrs;
+	int				size;
 }					t_mlx;
 
 typedef struct		s_fd
@@ -59,6 +62,7 @@ int					**ft_numboard(int c);
 void				ft_putnbrline(int *nl, int len);
 void				ft_putnbrtab(int **nb, char **tab);
 void				ft_grid(t_mlx mlx, int **nb);
+void				ft_line(int x0, int y0, int x1, int y1, t_mlx mlx);
 void				ft_linedraw(int x0, int y0, int x1, int y1, t_mlx mlx);
 
 #endif
