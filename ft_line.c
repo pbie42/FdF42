@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 18:33:57 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/17 14:35:43 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/17 14:39:39 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_line			ft_linfofill(int x0, int y0, int x1, int y1)
 	return (linfo);
 }
 
-void			ft_line(int x0, int y0, int x1, int y1)
+void			ft_line(int x0, int y0, int x1, int y1, t_mlx mlx)
 {
 	t_line		linfo;
 	int			i;
@@ -48,6 +48,18 @@ void			ft_line(int x0, int y0, int x1, int y1)
 	linfo = ft_linfofill(x0, y0, x1, y1);
 	while (i <= linfo.longest)
 	{
-		
+		mlx_pixel_put(mlx.mlx, mlx.win, linfo.x, linfo.y, mlx.c);
+		linfo.numerator += linfo.shortest;
+		if (!(linfo.numerator < linfo.longest))
+		{
+			linfo.x += linfo.dx0;
+			linfo.y += linfo.dy0;
+		}
+		else
+		{
+			linfo.x += linfo.dx1;
+			linfo.y += linfo.dy1;
+		}
+		i++;
 	}
 }
