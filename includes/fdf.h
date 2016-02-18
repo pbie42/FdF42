@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/17 18:09:34 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/18 18:27:15 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ typedef struct		s_mlx
 	void			*win;
 	int				y;
 	int				x;
+	int				x1;
+	int				y1;
 	int				c;
 	int				tablen;
 	int				strlen;
-	int				sqrs;
+	int				mpsz;
+	int				sqrsz;
 	int				size;
 }					t_mlx;
 

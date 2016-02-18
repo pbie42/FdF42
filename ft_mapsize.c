@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 17:51:12 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/17 18:12:42 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/18 18:27:12 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,25 +117,37 @@ void			ft_displaysize(t_mlx *mlx)
 
 void			ft_squaresize(t_mlx *mlx)
 {
-	mlx->sqrs = sqrt((mlx->strlen * mlx->strlen) + (mlx->tablen * mlx->tablen));
+	mlx->mpsz = sqrt((mlx->strlen * mlx->strlen) + (mlx->tablen * mlx->tablen));
 	if (SIZE_X > SIZE_Y)
-		mlx->size = (SIZE_Y - (SIZE_Y * .25)) / mlx->sqrs;
+	{
+		mlx->size = (SIZE_Y - (SIZE_Y * .25)) / mlx->mpsz;
+		mlx->x = ((SIZE_X - SIZE_Y) / 2) + ((SIZE_Y * .25) / 2);
+		mlx->y = (SIZE_Y) / 2;
+		mlx->x1 = (SIZE_X / 2);
+		mlx->y1 = 
+	}
+	else if (SIZE_Y > SIZE_X)
+	{
+		mlx->size = (SIZE_X - (SIZE_X * .25)) / mlx->mpsz;
+		mlx->x = (SIZE_X) / 2;
+		mlx->y = ((SIZE_Y - SIZE_X) / 2) + ((SIZE_X * .25) / 2);
+	}
 	else
-		mlx->size = (SIZE_X - (SIZE_X * .25)) / mlx->sqrs;
+	{
+		mlx->size = (SIZE_X - (SIZE_X * .25)) / mlx->mpsz;
+		mlx->x = (SIZE_X) / 2;
+		mlx->y = (SIZE_Y) / 2;
+	}
 }
 
 void			ft_grid2(t_mlx mlx, int nb)
 {
-	int			x;
-	int			y;
-	int			x2;
-	int			y2;
 	int			i;
 	int			j;
 
-	ft_displaysize(&mlx);
-	i = 0;
+	ft_squaresize(&mlx);
+	
 
-	x2 = x;
+	
 	
 }
