@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 17:51:12 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/18 18:27:12 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/19 16:36:31 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,39 +115,45 @@ void			ft_displaysize(t_mlx *mlx)
 	}
 }
 
-void			ft_squaresize(t_mlx *mlx)
+void			ft_rectsize(t_mlx *mlx)
 {
 	mlx->mpsz = sqrt((mlx->strlen * mlx->strlen) + (mlx->tablen * mlx->tablen));
 	if (SIZE_X > SIZE_Y)
 	{
-		mlx->size = (SIZE_Y - (SIZE_Y * .25)) / mlx->mpsz;
+		mlx->xlen = ((mlx->strlen) * (SIZE_Y - (SIZE_Y * .25))) / mlx->mpsz;
+		mlx->ylen = ((mlx->tablen) * (SIZE_Y - (SIZE_Y * .25))) / mlx->mpsz;
 		mlx->x = ((SIZE_X - SIZE_Y) / 2) + ((SIZE_Y * .25) / 2);
 		mlx->y = (SIZE_Y) / 2;
-		mlx->x1 = (SIZE_X / 2);
-		mlx->y1 = 
+		mlx->x2 = SIZE_X - mlx->x;
+		mlx->y2 = mlx->y;
 	}
 	else if (SIZE_Y > SIZE_X)
 	{
-		mlx->size = (SIZE_X - (SIZE_X * .25)) / mlx->mpsz;
+		mlx->xlen = ((mlx->strlen) * (SIZE_X - (SIZE_X * .25))) / mlx->mpsz;
+		mlx->ylen = ((mlx->tablen) * (SIZE_X - (SIZE_X * .25))) / mlx->mpsz;
 		mlx->x = (SIZE_X) / 2;
 		mlx->y = ((SIZE_Y - SIZE_X) / 2) + ((SIZE_X * .25) / 2);
+		mlx->y2 = SIZE_Y - mlx->y;
+		mlx->x2 = mlx->x;
 	}
 	else
 	{
-		mlx->size = (SIZE_X - (SIZE_X * .25)) / mlx->mpsz;
+		mlx->xlen = ((mlx->strlen) * (SIZE_Y - (SIZE_Y * .25))) / mlx->mpsz;
+		mlx->ylen = ((mlx->tablen) * (SIZE_Y - (SIZE_Y * .25))) / mlx->mpsz;
 		mlx->x = (SIZE_X) / 2;
 		mlx->y = (SIZE_Y) / 2;
 	}
+		mlx->x1 = (mlx->ylen * (cos(atan(mlx->xlen / mlx->ylen)))) + mlx->x;
+		mlx->y1 = -(mlx->ylen * (sin(atan(mlx->xlen / mlx->ylen)))) + mlx->y;
+		mlx->y3 = mlx->y - mlx->y1 + mlx->y2;
+		mlx->x3 = -(mlx->x1 - mlx->x - mlx->x2);
 }
 
-void			ft_grid2(t_mlx mlx, int nb)
+void			ft_grid2(t_mlx mlx)
 {
-	int			i;
-	int			j;
-
-	ft_squaresize(&mlx);
-	
-
-	
-	
+	ft_rectsize(&mlx);
+	ft_line(mlx.x, mlx.y, mlx.x1, mlx.y1, mlx);
+	ft_line(mlx.x1, mlx.y1, mlx.x2, mlx.y2, mlx);
+	ft_line(mlx.x2, mlx.y2, mlx.x3, mlx.y3, mlx);
+	ft_line(mlx.x, mlx.y, mlx.x3, mlx.y3, mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 15:56:55 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/17 16:25:41 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/19 14:24:10 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ int				main(int argc, char **argv)
 	ft_putnbr(mlx.tablen);
 	ft_putchar('\n');
 	//ft_grid(mlx, nb);
-	ft_line(700, 500, 300, 400, mlx);
+	//ft_line(700, 500, 300, 400, mlx);
+	ft_grid2(mlx);
 	mlx_key_hook(mlx.win, ft_keycheck, &mlx);
 	mlx_loop(mlx.mlx);
 	return (0);

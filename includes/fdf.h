@@ -6,13 +6,13 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/18 18:27:15 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/19 15:55:02 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# define SIZE_X 1000
+# define SIZE_X 1500
 # define SIZE_Y 1000
 
 # include "../libft/includes/libft.h"
@@ -27,6 +27,12 @@ typedef struct		s_mlx
 	int				x;
 	int				x1;
 	int				y1;
+	int				x2;
+	int				y2;
+	int				x3;
+	int				y3;
+	int				ylen;
+	int				xlen;
 	int				c;
 	int				tablen;
 	int				strlen;
@@ -67,5 +73,7 @@ void				ft_putnbrtab(int **nb, char **tab);
 void				ft_grid(t_mlx mlx, int **nb);
 void				ft_line(int x0, int y0, int x1, int y1, t_mlx mlx);
 void				ft_linedraw(int x0, int y0, int x1, int y1, t_mlx mlx);
+void				ft_grid2(t_mlx mlx);
+void				ft_rectsize(t_mlx *mlx);
 
 #endif
