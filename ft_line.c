@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 18:33:57 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/17 15:55:53 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/20 18:38:08 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ t_line			ft_linfofill(int x0, int y0, int x1, int y1)
 
 	linfo.x = x1 - x0;
 	linfo.y = y1 - y0;
+	linfo.dx0 = 0;
+	linfo.dy0 = 0;
+	linfo.dx1 = 0;
+	linfo.dy1 = 0;
 	linfo.dx0 = linfo.x < 0 ? -1 : 1;
 	linfo.dy0 = linfo.y < 0 ? -1 : 1;
 	linfo.dx1 = linfo.x < 0 ? -1 : 1;
@@ -30,10 +34,8 @@ t_line			ft_linfofill(int x0, int y0, int x1, int y1)
 		if (linfo.y < 0)
 			linfo.dy1 = -1;
 		else if (linfo.y > 0)
-		{
 			linfo.dy1 = 1;
-			linfo.dx1 = 0;
-		}
+		linfo.dx1 = 0;
 	}
 	linfo.numerator = linfo.longest >> 1;
 	return (linfo);
