@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 17:51:12 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/20 21:26:57 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/21 18:49:27 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,18 +156,24 @@ void			ft_rectsize(t_mlx *mlx)
 		mlx->desize = mlx->ylen;
 }
 
-void			ft_tophalf(t_mlx *mlx)
+void			ft_tophalfp1(t_mlx *mlx)
 {
-		mlx->x1x = (mlx->size * (cos(atan(mlx->xlen / mlx->ylen)))) + mlx->x;
-		mlx->y1y = -(mlx->size * (sin(atan(mlx->xlen / mlx->ylen)))) + mlx->y;
+	mlx->x1x = (mlx->size * (cos(atan(mlx->xlen / mlx->ylen)))) + mlx->x;
+	mlx->y1y = -(mlx->size * (sin(atan(mlx->xlen / mlx->ylen)))) + mlx->y;
 }
 
-void			ft_bottomhalf(t_mlx *mlx)
+void			ft_bottomhalfp1(t_mlx *mlx)
 {
-		mlx->x1z = (mlx->desize * (cos(atan(mlx->xlen / mlx->ylen)))) + mlx->x;
-		mlx->y1z = -(mlx->desize * (sin(atan(mlx->xlen / mlx->ylen)))) + mlx->y;
-		mlx->y3y = mlx->y - mlx->y1z + mlx->y2;
-		mlx->x3x = -(mlx->x1z - mlx->x - mlx->x2);
+	mlx->x1z = (mlx->desize * (cos(atan(mlx->xlen / mlx->ylen)))) + mlx->x;
+	mlx->y1z = -(mlx->desize * (sin(atan(mlx->xlen / mlx->ylen)))) + mlx->y;
+	mlx->y3y = mlx->y - mlx->y1z + mlx->y2;
+	mlx->x3x = -(mlx->x1z - mlx->x - mlx->x2);
+}
+
+void			ft_tophalfp2(t_mlx *mlx)
+{
+	mlx->x1x = (mlx->xlen * (cos(atan(mlx->ylen / mlx->xlen)))) + mlx->x1;
+	mlx->y1y = -(mlx->xlen * (sin(atan(mlx->ylen / mlx->xlen)))) + mlx->y1;
 }
 
 void			ft_grid2(t_mlx mlx)
@@ -180,16 +186,15 @@ void			ft_grid2(t_mlx mlx)
 	ft_rectsize(&mlx);
 	mlx.incr = mlx.size;
 
+		ft_putnbr(mlx.xlen);
+		ft_putchar('\n');
+		ft_putnbr(mlx.x2 - mlx.x1);
+		ft_putchar('\n');
+		ft_putnbr(mlx.x);
+		ft_putchar('\n');
 		ft_putnbr(mlx.x1);
-		ft_putchar(' ');
-		ft_putnbr(mlx.y1);
 		ft_putchar('\n');
-		ft_putchar('\n');
-		ft_putnbr(mlx.x3);
-		ft_putchar(' ');
-		ft_putnbr(mlx.y3);
-		ft_putchar('\n');
-		ft_putchar('\n');
+		ft_putnbr(mlx.y - mlx.y1);
 	//mlx.y1 = (SIZE_Y * .25) / 2;
 	//mlx.y3 = SIZE_Y - ((SIZE_Y * .25) / 2);
 
@@ -199,8 +204,8 @@ void			ft_grid2(t_mlx mlx)
 	ft_line(mlx.x, mlx.y, mlx.x3, mlx.y3, mlx);*/
 	while (i <= mlx.tablen)
 	{
-		ft_tophalf(&mlx);
-		ft_bottomhalf(&mlx);
+		ft_tophalfp1(&mlx);
+		ft_bottomhalfp1(&mlx);
 		mlx.x3 = mlx.x3x;
 		mlx.y3 = mlx.y3y;
 		ft_line(mlx.x, mlx.y, mlx.x3, mlx.y3, mlx);
