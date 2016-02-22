@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/20 20:33:05 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/22 15:42:42 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,18 @@ typedef struct		s_mlx
 	int				y3;
 	int				x3x;
 	int				y3y;
-	float				ylen;
-	float				xlen;
+	int				xhold;
+	int				yhold;
+	double				ylen;
+	double				xlen;
 	int				c;
 	int				tablen;
 	int				strlen;
-	float				mpsz;
-	int				sqrsz;
-	float				size;
-	float				desize;
-	float				incr;
+	double				mpsz;
+	double				sqrsz;
+	double				size;
+	double				desize;
+	double				incr;
 }					t_mlx;
 
 typedef struct		s_fd
