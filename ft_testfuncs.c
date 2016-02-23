@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 17:26:47 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/11 17:27:38 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/23 17:39:35 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ void			ft_putnbrline(int *nl, int len)
 	}
 }
 
-void			ft_putnbrtab(int **nb, char **tab)
+void			ft_putnbrtab(int **nb, t_mlx *mlx)
 {
 	int			i;
 
 	i = 0;
-	while (i < ft_tablen(tab))
+	while (i < mlx->tablen)
 	{
-		ft_putnbrline(nb[i], ft_strlennum(tab[i]));
+		ft_putnbrline(nb[i], mlx->strlen);
 		ft_putchar('\n');
 		i++;
 	}

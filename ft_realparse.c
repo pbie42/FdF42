@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse.c                                         :+:      :+:    :+:   */
+/*   ft_realparse.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/10 14:21:31 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/23 17:34:32 by pbie             ###   ########.fr       */
+/*   Created: 2016/02/23 16:50:23 by pbie              #+#    #+#             */
+/*   Updated: 2016/02/23 18:12:22 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_fd			ft_finfobuild(int argc)
-{
-	t_fd		finfo;
-
-	finfo.fd = 0;
-	finfo.line = "";
-	finfo.argc = argc;
-	return (finfo);
-}
-
-/*char			**ft_parse1(char *file, t_fd *finfo)
+int				**ft_parse1(char *file, t_fd *finfo, t_mlx *mlx)
 {
 	char		**tab;
 	int			j;
+	int			**nb;
 
 	j = 0;
-	if (finfo->argc != 2)
-		ft_exit("Wrong number of arguments!");
 	if ((finfo->fd = open(file, O_RDONLY)) <= 0)
 		ft_exit("File Failure");
 	while (ft_get_next_line(finfo->fd, &(finfo->line)) == 1)
@@ -38,44 +27,33 @@ t_fd			ft_finfobuild(int argc)
 		free(finfo->line);
 	}
 	close(finfo->fd);
-	tab = ft_buildtab(j);
+	mlx->tablen = j;
+	nb = ft_numboard(mlx->tablen) - 1;
 	j = 0;
 	finfo->fd = open(file, O_RDONLY);
 	while (ft_get_next_line(finfo->fd, &(finfo->line)) == 1)
 	{
-		tab[j] = ft_strndup(finfo->line, ft_strlen(finfo->line));
+		tab = ft_strsplit(finfo->line, ' ');
+		mlx->strlen = (ft_tablen(tab)) - 1;
+		nb[j] = ft_parse2(tab, mlx);
 		free(finfo->line);
+		free(tab);
 		j++;
 	}
-	tab[j] = NULL;
-	return (tab);
-}*/
+	return (nb);
+}
 
-/*int				**ft_parse2(char **tab, t_mlx *mlx)
+int				*ft_parse2(char **tab, t_mlx *mlx)
 {
-	int			**nb;
+	int			*nb;
 	int			i;
 
 	i = 0;
-	mlx->tablen = ft_tablen(tab) - 1;
-	nb = ft_numboard(mlx->tablen);
-	mlx->strlen = ft_strlennum(tab[i]) - 1;
+	nb = (int *)malloc(sizeof(int) * mlx->strlen);
 	while (tab[i] != NULL)
 	{
-		nb[i] = ft_chartonumline(tab[i], mlx->strlen);
+		nb[i] = ft_atoi(tab[i]);
 		i++;
 	}
-	ft_putchar('\n');
-	ft_putchar('\n');
-	ft_putchar(tab[0][0]);
-	ft_putchar('\n');
-	ft_putchar('\n');
-	ft_putchar('\n');
-	ft_putchar('\n');
-	ft_putnbr(nb[0][0]);
-	ft_putchar('\n');
-	ft_putchar('\n');
-	ft_putchar('\n');
-	ft_putchar('\n');
 	return (nb);
-}*/
+}

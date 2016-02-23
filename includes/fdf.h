@@ -6,13 +6,13 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/22 15:42:42 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/23 18:32:38 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# define SIZE_X 1500
+# define SIZE_X 1000
 # define SIZE_Y 1000
 
 # include "../libft/includes/libft.h"
@@ -37,8 +37,6 @@ typedef struct		s_mlx
 	int				y3;
 	int				x3x;
 	int				y3y;
-	int				xhold;
-	int				yhold;
 	double				ylen;
 	double				xlen;
 	int				c;
@@ -71,15 +69,16 @@ typedef struct		s_line
 	int				numerator;
 }					t_line;
 
-char				**ft_parse1(char *file, t_fd *finfo);
-int					**ft_parse2(char **tab, t_mlx *mlx);
+int					**ft_parse1(char *file, t_fd *finfo, t_mlx *mlx);
+int					*ft_parse2(char **tab, t_mlx *mlx);
 char				**ft_buildtab(int j);
 t_fd				ft_finfobuild(int argc);
 int					*ft_chartonumline(char *s, int c);
 int					ft_strlennum(char const *s);
 int					**ft_numboard(int c);
 void				ft_putnbrline(int *nl, int len);
-void				ft_putnbrtab(int **nb, char **tab);
+//void				ft_putnbrtab(int **nb, char **tab);
+void			ft_putnbrtab(int **nb, t_mlx *mlx);
 void				ft_grid(t_mlx mlx, int **nb);
 void				ft_line(int x0, int y0, int x1, int y1, t_mlx mlx);
 void				ft_linedraw(int x0, int y0, int x1, int y1, t_mlx mlx);

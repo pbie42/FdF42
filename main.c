@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 15:56:55 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/19 14:24:10 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/23 17:41:07 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,17 @@ int				main(int argc, char **argv)
 {
 	t_mlx		mlx;
 	t_fd		finfo;
-	char		**tab;
 	int			**nb;
 
 	mlx.mlx = mlx_init();
 	mlx.win = mlx_new_window(mlx.mlx, SIZE_X, SIZE_Y, "maintest");
 	mlx.c = 0x00FFFFFF;
 	finfo = ft_finfobuild(argc);
-	tab = ft_parse1(argv[1], &finfo);
-	nb = ft_parse2(tab, &mlx);
-	ft_putnbr(mlx.strlen);
+	nb = ft_parse1(argv[1], &finfo, &mlx);
 	ft_putchar('\n');
-	ft_putnbr(mlx.tablen);
+	ft_putnbr(nb[0][0]);
 	ft_putchar('\n');
-	//ft_grid(mlx, nb);
-	//ft_line(700, 500, 300, 400, mlx);
+	ft_putnbrtab(nb, &mlx);
 	ft_grid2(mlx);
 	mlx_key_hook(mlx.win, ft_keycheck, &mlx);
 	mlx_loop(mlx.mlx);

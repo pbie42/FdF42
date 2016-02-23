@@ -6,7 +6,7 @@
 #    By: pbie <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/15 11:55:43 by pbie              #+#    #+#              #
-#    Updated: 2016/02/17 16:26:11 by pbie             ###   ########.fr        #
+#    Updated: 2016/02/23 17:37:31 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRC = main.c \
 	  ft_parseaux.c \
 	  ft_testfuncs.c \
 	  ft_mapsize.c \
-	  ft_line.c
+	  ft_line.c \
+	  ft_realparse.c
 
 OBJ = $(SRC:.c=.o)
 
