@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 17:51:12 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/23 18:29:19 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/24 17:17:35 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int				ft_color(int k)
 
 }
 
-void			ft_grid(t_mlx mlx, int **nb)
+/*void			ft_grid(t_mlx mlx, int **nb)
 {
 	int			x;
 	int			y;
@@ -99,7 +99,7 @@ void			ft_grid(t_mlx mlx, int **nb)
 		ft_putnbr(j);
 		ft_putchar('\n');
 	}
-}
+}*/
 
 void			ft_displaysize(t_mlx *mlx)
 {
@@ -160,8 +160,17 @@ void			ft_tophalfp1(t_mlx *mlx)
 
 void			ft_bottomhalfp1(t_mlx *mlx)
 {
+	long	i;
+	double	d;
+
+	d = (mlx->desize * (sin(atan(mlx->xlen / mlx->ylen)))) + mlx->y;
+	i = d;
+	d -= i;
+	d *= d * 10;
+	i = d;
+	i = i > 4 ? 1 : 1;
 	mlx->x1z = (mlx->desize * (cos(atan(mlx->xlen / mlx->ylen)))) + mlx->x;
-	mlx->y1z = -(mlx->desize * (sin(atan(mlx->xlen / mlx->ylen)))) + mlx->y;
+	mlx->y1z = -(mlx->desize * (sin(atan(mlx->xlen / mlx->ylen)))) + mlx->y + i;
 	mlx->y3y = mlx->y - mlx->y1z + mlx->y2;
 	mlx->x3x = -(mlx->x1z - mlx->x - mlx->x2);
 }
@@ -176,8 +185,17 @@ void			ft_bottomhalfp2(t_mlx *mlx)
 
 void			ft_tophalfp2(t_mlx *mlx)
 {
+	long	i;
+	double	d;
+
+	d = (mlx->desize * (sin(atan(mlx->ylen / mlx->xlen)))) + mlx->y2;
+	i = d;
+	d -= i;
+	d *= 10;
+	i = d;
+	i = i > 4 ? 1 : 0;
 	mlx->x1x = -(mlx->desize * (cos(atan(mlx->ylen / mlx->xlen)))) + mlx->x2;
-	mlx->y1y = -(mlx->desize * (sin(atan(mlx->ylen / mlx->xlen)))) + mlx->y2;
+	mlx->y1y = -(mlx->desize * (sin(atan(mlx->ylen / mlx->xlen)))) + mlx->y2 + i;
 }
 
 void			ft_grid2(t_mlx mlx)
@@ -193,6 +211,16 @@ void			ft_grid2(t_mlx mlx)
 	{
 		ft_tophalfp1(&mlx);
 		ft_bottomhalfp1(&mlx);
+		ft_putendl("x2 and y2");
+		ft_putnbr(mlx.x2);
+		ft_putchar(' ');
+		ft_putnbr(mlx.y2);
+		ft_putchar('\n');
+		ft_putendl("x1x and y1y");
+		ft_putnbr(mlx.x1x);
+		ft_putchar(' ');
+		ft_putnbr(mlx.y1y);
+		ft_putchar('\n');
 		ft_line(mlx.x1x, mlx.y1y, mlx.x3x, mlx.y3y, mlx);
 		mlx.incr += mlx.size;
 		mlx.desize -= mlx.size;
@@ -207,7 +235,7 @@ void			ft_grid2(t_mlx mlx)
 	mlx.desize = mlx.xlen;
 	mlx.incr = 0;
 	mlx.size = mlx.ylen / mlx.tablen;
-	while (j <= mlx.strlen)
+	/*while (j <= mlx.strlen)
 	{
 		ft_tophalfp2(&mlx);
 		ft_bottomhalfp2(&mlx);
@@ -215,7 +243,7 @@ void			ft_grid2(t_mlx mlx)
 		mlx.incr += mlx.size;
 		mlx.desize -= mlx.size;
 		j++;
-	}
+	}*/
 	ft_putendl("x2 and y2");
 	ft_putnbr(mlx.x2);
 	ft_putchar(' ');
