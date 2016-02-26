@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 16:22:32 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/25 18:30:08 by pbie             ###   ########.fr       */
+/*   Updated: 2016/02/26 15:25:11 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,43 +51,6 @@ void			ft_gridnew(t_mlx mlx, int **nb)
 {
 	int			i;
 	int			j;
-	int			**nb2;
-
-	nb2 = nb;
-
-	/*j = mlx.strlen;
-	while (j >= 0)
-	{
-		mlx.x1x = mlx.x;
-		mlx.y1y = mlx.y;
-		i = 0;
-		while (i <= mlx.tablen)
-		{
-			mlx.x2 = mlx.x1x - mlx.size;
-			mlx.y2 = mlx.y1y - (mlx.size / 2);
-			if (j - 1 != -1)
-			{
-				mlx.y2 = nb[i][j - 1] != 0 ? mlx.y2 - nb[i][j] : mlx.y2;
-				mlx.c = nb[i][j - 1] != 0 ? 0x006600FF : 0x00FFFFFF;
-				ft_line(mlx.x1x, mlx.y1y, mlx.x2, mlx.y2, mlx);
-				mlx.y2 = nb[i][j - 1] != 0 ? mlx.y2 + nb[i][j] : mlx.y2;
-			}
-			mlx.y2 += mlx.size;
-			if (i + 1 != mlx.tablen + 1)
-			{
-				mlx.y2 = nb[i + 1][j] != 0 ? mlx.y2 - nb[i][j] : mlx.y2;
-				mlx.c = nb[i + 1][j] != 0 ? 0x006600FF : 0x00FFFFFF;
-				ft_line(mlx.x1x, mlx.y1y, mlx.x2, mlx.y2, mlx);
-				mlx.y2 = nb[i][j - 1] != 0 ? mlx.y2 + nb[i][j] : mlx.y2;
-			}
-			mlx.x1x = mlx.x2;
-			mlx.y1y = mlx.y2;
-			i++;
-		}
-		mlx.x -= mlx.size;
-		mlx.y -= (mlx.size / 2);
-		j--;
-	}*/
 
 	i = 0;
 	while (i <= mlx.tablen)
@@ -101,10 +64,12 @@ void			ft_gridnew(t_mlx mlx, int **nb)
 			mlx.y2 = mlx.y1y - (mlx.size / 2);
 			if (j - 1 != -1)
 			{
-				mlx.y2 = nb[i][j - 1] != 0 ? mlx.y2 - nb[i][j] : mlx.y2;
+				mlx.y2 = nb[i][j - 1] != 0 ? mlx.y2 - nb[i][j - 1] : mlx.y2;
+				mlx.y1y = nb[i][j] != 0 ? mlx.y1y - nb[i][j] : mlx.y1y;
 				mlx.c = (nb[i][j] != 0 && nb[i][j - 1] != 0 ? mlx.c = 0x006600FF : 0x00FFFFFF);
 				ft_line(mlx.x1x, mlx.y1y, mlx.x2, mlx.y2, mlx);
-				mlx.y2 = nb[i][j - 1] != 0 ? mlx.y2 + nb[i][j] : mlx.y2;
+				mlx.y2 = nb[i][j - 1] != 0 ? mlx.y2 + nb[i][j - 1] : mlx.y2;
+				mlx.y1y = nb[i][j] != 0 ? mlx.y1y + nb[i][j] : mlx.y1y;
 			}
 			mlx.x1x = mlx.x2;
 			mlx.y1y = mlx.y2;
@@ -114,54 +79,19 @@ void			ft_gridnew(t_mlx mlx, int **nb)
 		mlx.y += (mlx.size / 2);
 		i++;
 	}
-
-
-	/*while (i <= mlx.tablen)
-	{
-		mlx.x1x = mlx.x;
-		mlx.y1y = mlx.y;
-		j = mlx.strlen;
-		while (j >= 0)
-		{
-			mlx.x2 = mlx.x1x - mlx.size;
-			mlx.y2 = mlx.y1y - (mlx.size / 2);
-			if (j - 1 != -1)
-				ft_line(mlx.x1x, mlx.y1y, mlx.x2, mlx.y2, mlx);
-			mlx.y2 += mlx.size;
-			if (i + 1 != mlx.tablen + 1)
-				ft_line(mlx.x1x, mlx.y1y, mlx.x2, mlx.y2, mlx);
-			mlx.x1x = mlx.x2;
-			mlx.x1x = mlx.y2;
-			j--;
-		}
-		mlx.x -= mlx.size;
-		mlx.y += (mlx.size / 2);
-		i++;
-	}*/
-
-
-
-	/*while (i <= mlx.tablen)
-	{
-		j = mlx.strlen;
-		mlx.x1x = mlx.x;
-		mlx.y1y = mlx.y;
-		while (j >= 0)
-		{
-			mlx.x2 = mlx.x1x - mlx.size;
-			mlx.y2 = mlx.y1y + (mlx.size / 2);
-			//if (nb[i][j])
-			if (i - 1 != -1)
-				ft_line(mlx.x1x, mlx.y1y, mlx.x2, mlx.y2, mlx);
-			mlx.y2 -= mlx.size;
-			if (j - 1 != -1)
-				ft_line(mlx.x1x, mlx.y1y, mlx.x2, mlx.y2, mlx);
-			mlx.x1x = mlx.x2;
-			mlx.y1y = mlx.y2;
-			j--;
-		}
-		mlx.x -= mlx.size;
-		mlx.y += (mlx.size / 2);
-		i++;
-	}*/
+	//ft_gridnew2(mlx, nb);
 }
+
+/*void			ft_gridnew2(t_mlx mlx, int **nb)
+{
+	int			i;
+	int			j;
+
+	ft_mapsize(&mlx);
+	i = 0;
+	while (i <= mlx.tablen)
+	{
+		
+	}
+
+}*/
