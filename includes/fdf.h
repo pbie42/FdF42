@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/02 17:13:53 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/02 18:04:24 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct		s_mlx
 	int				strlen;
 	double			mpsz;
 	double			size;
+	int				**nb;
 }					t_mlx;
 
 typedef struct		s_fd
@@ -72,13 +73,13 @@ void				ft_putnbrline(int *nl, int len);
 void				ft_putnbrtab(int **nb, t_mlx *mlx);
 void				ft_grid(t_mlx mlx, int **nb);
 void				ft_line(int x0, int y0, int x1, int y1, t_mlx mlx);
-void				ft_gridnew(t_mlx mlx, int **nb);
-void				ft_gridnew2(t_mlx mlx, int **nb);
+void				ft_gridnew(t_mlx mlx);
+void				ft_gridnew2(t_mlx mlx);
 void				ft_xyreset(t_mlx *mlx);
 void				ft_x2y2g1(t_mlx *mlx);
 void				ft_x2y2g2(t_mlx *mlx);
-void				ft_g1core(t_mlx *mlx, int **nb, int i, int j);
-void				ft_g2core(t_mlx *mlx, int **nb, int i, int j);
+void				ft_g1core(t_mlx *mlx, int i, int j);
+void				ft_g2core(t_mlx *mlx, int i, int j);
 void				ft_rectsize(t_mlx *mlx);
 void				ft_mapsize(t_mlx *mlx);
 
