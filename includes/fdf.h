@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/26 17:25:32 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/02 17:13:53 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,15 @@ typedef struct		s_mlx
 	int				x1x;
 	int				y1y;
 	int				z;
-	int				x1z;
-	int				y1z;
 	int				x2;
 	int				y2;
-	int				x3;
-	int				y3;
-	int				x3x;
-	int				y3y;
-	int				x3q;
-	int				y3q;
-	double				ylen;
-	double				xlen;
+	double			ylen;
+	double			xlen;
 	int				c;
 	int				tablen;
 	int				strlen;
-	double				mpsz;
-	double				sqrsz;
-	double				size;
-	double				desize;
-	double				incr;
+	double			mpsz;
+	double			size;
 }					t_mlx;
 
 typedef struct		s_fd
@@ -80,11 +69,9 @@ int					*ft_chartonumline(char *s, int c);
 int					ft_strlennum(char const *s);
 int					**ft_numboard(int c);
 void				ft_putnbrline(int *nl, int len);
-//void				ft_putnbrtab(int **nb, char **tab);
-void			ft_putnbrtab(int **nb, t_mlx *mlx);
+void				ft_putnbrtab(int **nb, t_mlx *mlx);
 void				ft_grid(t_mlx mlx, int **nb);
 void				ft_line(int x0, int y0, int x1, int y1, t_mlx mlx);
-void				ft_linedraw(int x0, int y0, int x1, int y1, t_mlx mlx);
 void				ft_gridnew(t_mlx mlx, int **nb);
 void				ft_gridnew2(t_mlx mlx, int **nb);
 void				ft_xyreset(t_mlx *mlx);

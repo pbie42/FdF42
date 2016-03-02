@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 15:56:55 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/24 17:21:09 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/02 17:45:30 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,22 @@ void			ft_square(t_mlx mlx)
 	}
 }
 
-int				ft_keycheck(int keycode, t_mlx *mlx)
+int				ft_keycheck(int keycode, t_mlx *mlx, int **nb)
 {
 	if (keycode == 124)
 		mlx->c = mlx->c - 001010;
 	else if (keycode == 53)
 		exit(0);
+	else if (keycode == 126)
+	{
+		mlx->z += 1;
+		ft_putnbr(mlx->z);
+		ft_putchar('\n');
+	}
+	else if (keycode == 125)
+		mlx->z -= 1;
+	ft_gridnew(*mlx, nb);
 	printf("key event %d\n", keycode);
-	ft_square(*mlx);
 	return (0);
 }
 
@@ -49,24 +57,12 @@ int				main(int argc, char **argv)
 	mlx.c = 0x00FFFFFF;
 	finfo = ft_finfobuild(argc);
 	nb = ft_parse1(argv[1], &finfo, &mlx);
-	ft_putnbr(mlx.strlen);
-	ft_putchar('\n');
-	ft_putnbr(mlx.tablen);
-	ft_putchar('\n');
 	ft_mapsize(&mlx);
-	ft_putnbr(mlx.x);
-	ft_putchar('\n');
-	ft_putnbr(mlx.y);
-	ft_putchar('\n');
-	ft_putnbr(mlx.strlen);
-	ft_putchar('\n');
-	ft_putnbr(mlx.tablen);
-	ft_putchar('\n');
-	ft_putnbr(mlx.size);
-	ft_putchar('\n');
-	ft_putnbr(mlx.desize);
+	ft_putnbr(mlx.z);
 	ft_putchar('\n');
 	ft_gridnew(mlx, nb);
+	ft_putnbr(mlx.z);
+	ft_putchar('\n');
 	mlx_key_hook(mlx.win, ft_keycheck, &mlx);
 	mlx_loop(mlx.mlx);
 	return (0);
