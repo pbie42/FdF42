@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/03 15:52:57 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/03 18:09:12 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,19 @@
 # define FDF_H
 # define SIZE_X 1500
 # define SIZE_Y 1000
+# define UP_ARROW 126
+# define DOWN_ARROW 125
+# define RIGHT_ARROW 124
+# define LEFT_ARROW 123
+# define MINUS 27
+# define PLUS 24
+# define ESC_KEY 53
+# define PAGE_UP 116
+# define PAGE_DOWN 121
+# define HOME 115
+# define END 119
+# define KEYPRESS 2
+# define KEYPRESSMASK (1L<<0)
 
 # include "../libft/includes/libft.h"
 # include "../minilibx/mlx.h"
@@ -34,7 +47,9 @@ typedef struct		s_mlx
 	int				y2;
 	double			ylen;
 	double			xlen;
+	int				col;
 	int				c;
+	int				c2;
 	int				tablen;
 	int				strlen;
 	double			mpsz;

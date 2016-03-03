@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 17:21:13 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/03 16:28:12 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/03 18:10:11 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void			ft_g1core(t_mlx *mlx, int i, int j)
 {
 	mlx->y2 = mlx->nb[i][j - 1] != 0 ? mlx->y2 - ((mlx->nb[i][j - 1] * mlx->z) + mlx->zoom) : mlx->y2;
 	mlx->y1y = mlx->nb[i][j] != 0 ? mlx->y1y - ((mlx->nb[i][j] * mlx->z) + mlx->zoom) : mlx->y1y;
-	mlx->c = (mlx->nb[i][j] != 0 || mlx->nb[i][j - 1] != 0 ? 0x006600FF : 0x00FFFFFF);
+	mlx->col = (mlx->nb[i][j] != 0 || mlx->nb[i][j - 1] != 0 ? mlx->c2 : mlx->c);
 	ft_line(mlx->x1x, mlx->y1y, mlx->x2, mlx->y2, *mlx);
-	mlx_pixel_put(mlx->mlx, mlx->win, mlx->x2, mlx->y2, mlx->c);
+	mlx_pixel_put(mlx->mlx, mlx->win, mlx->x2, mlx->y2, mlx->col);
 	mlx->y2 = mlx->nb[i][j - 1] != 0 ? mlx->y2 + ((mlx->nb[i][j - 1] * mlx->z) + mlx->zoom) : mlx->y2;
 	mlx->y1y = mlx->nb[i][j] != 0 ? mlx->y1y + ((mlx->nb[i][j] * mlx->z) + mlx->zoom) : mlx->y1y;
 }
@@ -45,9 +45,9 @@ void			ft_g2core(t_mlx *mlx, int i, int j)
 {
 	mlx->y2 = mlx->nb[i + 1][j] != 0 ? mlx->y2 - ((mlx->nb[i + 1][j] * mlx->z) + mlx->zoom) : mlx->y2;
 	mlx->y1y = mlx->nb[i][j] != 0 ? mlx->y1y - ((mlx->nb[i][j] * mlx->z) + mlx->zoom) : mlx->y1y;
-	mlx->c = (mlx->nb[i][j] != 0 || mlx->nb[i + 1][j] != 0 ? 0x006600FF : 0x00FFFFFF);
+	mlx->col = (mlx->nb[i][j] != 0 || mlx->nb[i + 1][j] != 0 ? mlx->c2 : mlx->c);
 	ft_line(mlx->x1x, mlx->y1y, mlx->x2, mlx->y2, *mlx);
-	mlx_pixel_put(mlx->mlx, mlx->win, mlx->x1x, mlx->y1y, mlx->c);
+	mlx_pixel_put(mlx->mlx, mlx->win, mlx->x1x, mlx->y1y, mlx->col);
 	mlx->y2 = mlx->nb[i + 1][j] != 0 ? mlx->y2 + ((mlx->nb[i + 1][j] * mlx->z) + mlx->zoom) : mlx->y2;
 	mlx->y1y = mlx->nb[i][j] != 0 ? mlx->y1y + ((mlx->nb[i][j] * mlx->z) + mlx->zoom) : mlx->y1y;
 }

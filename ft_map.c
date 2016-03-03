@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 16:22:32 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/03 15:56:42 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/03 18:11:05 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,6 @@ void			ft_mapsize(t_mlx *mlx)
 		mlx->y = SIZE_Y - (SIZE_Y * .33);
 	}
 	mlx->size = (mlx->xlen / mlx->strlen) + mlx->zoom;
+	mlx->c = 0x00FFFFFF;
+	mlx->c2 = 0x006600FF;
 }
