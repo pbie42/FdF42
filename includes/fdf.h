@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/02 18:04:24 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/03 15:52:57 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct		s_mlx
 	double			mpsz;
 	double			size;
 	int				**nb;
+	int				zoom;
 }					t_mlx;
 
 typedef struct		s_fd

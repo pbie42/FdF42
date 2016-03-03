@@ -6,43 +6,25 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 15:56:55 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/02 18:23:46 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/03 15:58:44 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <stdio.h>
 
-void			ft_square(t_mlx mlx)
-{
-	while (mlx.y < (SIZE_Y * (0.75)))
-	{
-		mlx.x = 250;
-		while (mlx.x < (SIZE_X * (0.75)))
-		{
-			mlx_pixel_put(mlx.mlx, mlx.win, mlx.x, mlx.y, mlx.c);
-			mlx.x++;
-		}
-		mlx.y++;
-	}
-}
-
 int				ft_keycheck(int keycode, t_mlx *mlx)
 {
 	if (keycode == 53)
 		exit(0);
-	else if (keycode == 116)
-		mlx->z += 1;
-	else if (keycode == 121)
-		mlx->z -= 1;
-	else if (keycode == 123)
-		mlx->x -= 2;
-	else if (keycode == 124)
-		mlx->x += 2;
-	else if (keycode == 126)
-		mlx->y -= 2;
-	else if (keycode == 125)
-		mlx->y += 2;
+	else if (keycode == 116 || keycode == 121)
+		mlx->z += (keycode == 116 ? 1 : -1);
+	else if (keycode == 123 || keycode == 124)
+		mlx->x += (keycode == 123 ? -2 : 2);
+	else if (keycode == 126 || keycode == 125)
+		mlx->y += (keycode == 126 ? -2 : 2);
+	else if (keycode == 27 || keycode == 24)
+		mlx->zoom += (keycode == 27 ? -2 : 2);
 	ft_gridnew(*mlx);
 	printf("key event %d\n", keycode);
 	return (0);
