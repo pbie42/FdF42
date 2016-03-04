@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 16:50:23 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/02 17:28:09 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/04 17:14:03 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ int				**ft_parse1(char *file, t_fd *finfo, t_mlx *mlx)
 	int			**nb;
 
 	j = 0;
-	if ((finfo->fd = open(file, O_RDONLY)) <= 0)
-		ft_exit("File Failure");
 	while (ft_get_next_line(finfo->fd, &(finfo->line)) == 1)
 	{
 		j++;

@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/03 18:09:12 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/04 16:32:44 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,27 @@
 # define LEFT_ARROW 123
 # define MINUS 27
 # define PLUS 24
+# define MINUS2 78
+# define PLUS2 69
 # define ESC_KEY 53
 # define PAGE_UP 116
 # define PAGE_DOWN 121
 # define HOME 115
 # define END 119
+# define HELLO "FdF by pbie"
+# define START "Continue by pressing any key"
+# define L_CONTROLS "             CONTROLS"
+# define L_UP "  Move Up       ||     Up"
+# define L_DOWN "  Move Down     ||     Down"
+# define L_LEFT "  Move Left     ||     Left"
+# define L_RIGHT "  Move Right    ||     Right"
+# define L_PLUS "  Zoom In       ||     +"
+# define L_MINUS "  Zoom Out      ||     -"
+# define L_PAGE_UP "  Increase      ||     Page Up"
+# define L_PAGE_DOWN "  Decrease      ||     Page Down"
+# define L_HOME "  Psychadelic   ||     Home"
+# define L_RESET "  Reset         ||     Enter"
+# define L_ESC "  Exit          ||     Esc"
 # define KEYPRESS 2
 # define KEYPRESSMASK (1L<<0)
 

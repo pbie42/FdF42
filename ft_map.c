@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 16:22:32 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/03 18:11:05 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/04 16:39:56 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void			ft_mapsize(t_mlx *mlx)
 {
 	mlx->mpsz = sqrt((mlx->strlen * mlx->strlen) + (mlx->tablen * mlx->tablen));
 	mlx->z = 3;
-	mlx->zoom = 1;
+	mlx->zoom = 5;
 	if (SIZE_X > SIZE_Y)
 	{
 		mlx->xlen = ((mlx->strlen) * (SIZE_Y - (SIZE_Y * .25))) / mlx->mpsz;
