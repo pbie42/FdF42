@@ -6,17 +6,17 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 18:33:57 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/04 17:37:54 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/07 15:45:59 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void			ft_color(t_mlx *mlx)
+/*void			ft_color(t_mlx *mlx)
 {
 
 }
-
+*/
 t_line			ft_linfofill(int x0, int y0, int x1, int y1)
 {
 	t_line		linfo;

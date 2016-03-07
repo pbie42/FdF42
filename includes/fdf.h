@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/04 16:32:44 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/07 16:32:05 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,6 @@ void				ft_g1core(t_mlx *mlx, int i, int j);
 void				ft_g2core(t_mlx *mlx, int i, int j);
 void				ft_rectsize(t_mlx *mlx);
 void				ft_mapsize(t_mlx *mlx);
+void				ft_check_char_print(char *str);
 
 #endif

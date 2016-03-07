@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 15:56:55 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/04 17:38:33 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/07 18:29:11 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,16 @@ int				ft_keycheck(int keycode, t_mlx *mlx)
 	}
 	ft_gridnew(*mlx);
 	ft_putset(*mlx);
-	printf("key event %d\n", keycode);
-	ft_putnbrtab(mlx->nb, mlx);
 	return (0);
+}
+
+void			ft_mapcheck(t_fd *finfo, t_mlx *mlx)
+{
+	char		**tab;
+
+	ft_get_next_line(finfo->fd, &(finfo->line));
+	tab = ft_strsplit(finfo->line, ' ');
+	mlx->strlen = ft_tablen(tab);
 }
 
 int				main(int argc, char **argv)
@@ -67,13 +74,18 @@ int				main(int argc, char **argv)
 	int			c_y;
 
 	if (argc != 2)
-		ft_exit("Wrong Number of Arguments");
+		ft_exit("Error: Wrong Number of Arguments");
 	c_x = SIZE_X * 2 / 5;
 	c_y = SIZE_Y * 2 / 5;
 	finfo = ft_finfobuild(argc);
 	if ((finfo.fd = open(argv[1], O_RDONLY)) <= 0)
-		ft_exit("Invalid File");
+		ft_exit("Error: Invalid File");
+	ft_mapcheck(&finfo, &mlx);
 	mlx.nb = ft_parse1(argv[1], &finfo, &mlx);
+	if (mlx.tablen < 1 || mlx.strlen < 1)
+		ft_exit("Error: Empty File");
+	ft_putnbr(mlx.strlen);
+	ft_putchar('\n');
 	mlx.mlx = mlx_init();
 	mlx.win = mlx_new_window(mlx.mlx, SIZE_X, SIZE_Y, "fdf");
 	mlx_string_put(mlx.mlx, mlx.win, c_x + 100, c_y, 0x009999FF, HELLO);
