@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 15:56:55 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/07 18:29:11 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/08 17:46:48 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,18 @@ int				ft_keycheck(int keycode, t_mlx *mlx)
 	return (0);
 }
 
-void			ft_mapcheck(t_fd *finfo, t_mlx *mlx)
+void			ft_mapcheck(char *file, t_fd *finfo, t_mlx *mlx)
 {
 	char		**tab;
 
+	close(finfo->fd);
+	finfo->fd = open(file, O_RDONLY);
 	ft_get_next_line(finfo->fd, &(finfo->line));
 	tab = ft_strsplit(finfo->line, ' ');
 	mlx->strlen = ft_tablen(tab);
+	free(finfo->line);
+	close(finfo->fd);
+	finfo->fd = open(file, O_RDONLY);
 }
 
 int				main(int argc, char **argv)
@@ -80,12 +85,10 @@ int				main(int argc, char **argv)
 	finfo = ft_finfobuild(argc);
 	if ((finfo.fd = open(argv[1], O_RDONLY)) <= 0)
 		ft_exit("Error: Invalid File");
-	ft_mapcheck(&finfo, &mlx);
+	ft_mapcheck(argv[1], &finfo, &mlx);
 	mlx.nb = ft_parse1(argv[1], &finfo, &mlx);
 	if (mlx.tablen < 1 || mlx.strlen < 1)
 		ft_exit("Error: Empty File");
-	ft_putnbr(mlx.strlen);
-	ft_putchar('\n');
 	mlx.mlx = mlx_init();
 	mlx.win = mlx_new_window(mlx.mlx, SIZE_X, SIZE_Y, "fdf");
 	mlx_string_put(mlx.mlx, mlx.win, c_x + 100, c_y, 0x009999FF, HELLO);

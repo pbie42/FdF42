@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:06:29 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/07 16:32:05 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/08 18:02:14 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int					**ft_numboard(int c);
 void				ft_putnbrline(int *nl, int len);
 void				ft_putnbrtab(int **nb, t_mlx *mlx);
 void				ft_grid(t_mlx mlx, int **nb);
-void				ft_line(int x0, int y0, int x1, int y1, t_mlx mlx);
+void				ft_line(t_mlx mlx);
 void				ft_gridnew(t_mlx mlx);
 void				ft_gridnew2(t_mlx mlx);
 void				ft_xyreset(t_mlx *mlx);

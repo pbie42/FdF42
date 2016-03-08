@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 18:18:09 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/08 17:39:41 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/08 17:03:34 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void			ft_gridnew(t_mlx mlx)
 	int			j;
 
 	mlx_clear_window(mlx.mlx, mlx.win);
-	ft_xyset(&mlx);
+	mlx.x1 = mlx.x;
+	mlx.y1 = mlx.y;
 	mlx.size = (mlx.xlen / mlx.strlen) + mlx.zoom;
 	i = 0;
 	while (i < mlx.tablen)
@@ -53,7 +54,8 @@ void			ft_gridnew2(t_mlx mlx)
 	int			j;
 
 	j = mlx.strlen - 1;
-	ft_xyset(&mlx);
+	mlx.x1 = mlx.x;
+	mlx.y1 = mlx.y;
 	while (j >= 0)
 	{
 		ft_xyreset(&mlx);
