@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 16:50:23 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/08 17:28:18 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/09 15:16:45 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,6 @@ t_fd				ft_finfobuild(int argc)
 	finfo.line = "";
 	finfo.argc = argc;
 	return (finfo);
-}
-
-int					**ft_numboard(int c)
-{
-	int				**nb;
-
-	nb = (int **)malloc(sizeof(int *) * c);
-	return (nb);
 }
 
 void				ft_check_char_print(char *str)
@@ -44,9 +36,27 @@ void				ft_check_char_print(char *str)
 	}
 }
 
-int					**ft_parse1(char *file, t_fd *finfo, t_mlx *mlx)
+void				ft_parse1bis(t_fd *finfo, t_mlx *mlx, int **nb)
 {
 	char			**tab;
+	int				j;
+
+	j = 0;
+	while (ft_get_next_line(finfo->fd, &(finfo->line)) == 1)
+	{
+		tab = ft_strsplit(finfo->line, ' ');
+		if (tab == NULL)
+			ft_exit("Error: Empty Line Detected");
+		mlx->strlen = ft_tablen(tab);
+		nb[j] = ft_parse2(tab, mlx);
+		free(finfo->line);
+		free(tab);
+		j++;
+	}
+}
+
+int					**ft_parse1(char *file, t_fd *finfo, t_mlx *mlx)
+{
 	int				j;
 	int				**nb;
 
@@ -59,18 +69,10 @@ int					**ft_parse1(char *file, t_fd *finfo, t_mlx *mlx)
 	}
 	close(finfo->fd);
 	mlx->tablen = j;
-	nb = ft_numboard(mlx->tablen);
+	nb = (int **)malloc(sizeof(int *) * mlx->tablen);
 	j = 0;
 	finfo->fd = open(file, O_RDONLY);
-	while (ft_get_next_line(finfo->fd, &(finfo->line)) == 1)
-	{
-		tab = ft_strsplit(finfo->line, ' ');
-		mlx->strlen = ft_tablen(tab);
-		nb[j] = ft_parse2(tab, mlx);
-		free(finfo->line);
-		free(tab);
-		j++;
-	}
+	ft_parse1bis(finfo, mlx, nb);
 	return (nb);
 }
 

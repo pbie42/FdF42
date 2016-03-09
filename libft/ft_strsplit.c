@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 16:21:25 by pbie              #+#    #+#             */
-/*   Updated: 2016/02/10 17:29:38 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/09 15:14:57 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,6 @@ static int			ft_cntwrd(char const *s, char c)
 	return (cntr);
 }
 
-/*char				*ft_strndup(const char *s, size_t n)
-{
-	char			*str;
-
-	str = (char *)malloc(sizeof(char) * n + 1);
-	if (str == NULL)
-		return (NULL);
-	str = ft_strncpy(str, s, n);
-	str[n] = '\0';
-	return (str);
-}
-*/
-
 char				**ft_strsplit(char const *s, char c)
 {
 	int				i;
@@ -53,6 +40,8 @@ char				**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	k = 0;
+	if (ft_cntwrd(s,c) == 0)
+		return (NULL);
 	tab = (char **)malloc(sizeof(char *) * (ft_cntwrd(s, c)) + 1);
 	if (tab == NULL)
 		return (NULL);
@@ -64,10 +53,7 @@ char				**ft_strsplit(char const *s, char c)
 		while (s[i] && s[i] != c)
 			i++;
 		if (i > j)
-		{
-			tab[k] = ft_strndup(s + j, i - j);
-			k++;
-		}
+			tab[k++] = ft_strndup(s + j, i - j);
 	}
 	tab[k] = NULL;
 	return (tab);
