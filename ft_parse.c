@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 16:50:23 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/09 15:16:45 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/09 15:38:25 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void				ft_parse1bis(t_fd *finfo, t_mlx *mlx, int **nb)
 	{
 		tab = ft_strsplit(finfo->line, ' ');
 		if (tab == NULL)
-			ft_exit("Error: Empty Line Detected");
+			ft_exit("Error: Invalid Map");
 		mlx->strlen = ft_tablen(tab);
 		nb[j] = ft_parse2(tab, mlx);
 		free(finfo->line);

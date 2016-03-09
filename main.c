@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 15:56:55 by pbie              #+#    #+#             */
-/*   Updated: 2016/03/09 15:07:49 by pbie             ###   ########.fr       */
+/*   Updated: 2016/03/09 16:27:06 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void			ft_mapcheck(char *file, t_fd *finfo, t_mlx *mlx)
 	ft_get_next_line(finfo->fd, &(finfo->line));
 	tab = ft_strsplit(finfo->line, ' ');
 	if (tab == NULL)
-		ft_exit("Error: Empty Line Detected");
+		ft_exit("Error: Invalid Map");
 	mlx->strlen = ft_tablen(tab);
 	free(finfo->line);
 	close(finfo->fd);
@@ -89,8 +89,8 @@ int				main(int argc, char **argv)
 		ft_exit("Error: Invalid File");
 	ft_mapcheck(argv[1], &finfo, &mlx);
 	mlx.nb = ft_parse1(argv[1], &finfo, &mlx);
-	if (mlx.tablen < 1 || mlx.strlen < 1)
-		ft_exit("Error: Empty File");
+	if (mlx.tablen < 2 || mlx.strlen < 2)
+		ft_exit("Error: Invalid Map");
 	mlx.mlx = mlx_init();
 	mlx.win = mlx_new_window(mlx.mlx, SIZE_X, SIZE_Y, "fdf");
 	mlx_string_put(mlx.mlx, mlx.win, c_x + 100, c_y, 0x009999FF, HELLO);
